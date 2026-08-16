@@ -1,0 +1,16 @@
+from upload_pdf import upload_pdf
+from extract_text import extract_text
+from ask_questions import ask_questions
+
+
+
+
+k=4
+chunk_size=300
+overlap=50
+path="C:\\Users\\Dell\\OneDrive\\Documents\\Uni sem-2\\OOP\\oop_project\\OOP Project .pdf"
+# input("Input path to the file: ")
+Proceed=upload_pdf(path)
+if Proceed:
+    embedded,model,chunks=extract_text(path,chunk_size,overlap)
+    relevent_chunks=ask_questions(embedded,model,chunks,k)
